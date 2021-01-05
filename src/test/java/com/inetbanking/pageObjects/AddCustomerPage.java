@@ -8,7 +8,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class AddCustomerPage {
-
+//Comment for GIT commit
 	WebDriver ldriver;
 	
 	public AddCustomerPage(WebDriver rdriver) {
