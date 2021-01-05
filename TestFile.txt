@@ -1,7 +1,3 @@
-This is text file.taxt created for testing
-This is text file.taxt created for testing
-This is text file.taxt created for testing
-This is text file.taxt created for testing
-This is text file.taxt created for testing
-This is text file.taxt created for testing
-This is text file.taxt created for testing
+This is text file created for testing
+
+This is text file created for testing
