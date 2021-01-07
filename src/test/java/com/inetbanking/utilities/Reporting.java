@@ -29,18 +29,17 @@ public class Reporting extends TestListenerAdapter
 		
 	public void onStart(ITestContext testContext)
 	{
-		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());//time stamp
-		String repName="Test-Report-"+timeStamp+".html";
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());//time stamp (dinamic value)
+		String repName="Test-Report-"+timeStamp+".html";//we are naming the test reports here with timestamp
 		
 		htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+ "/test-output/ExtentReports/"+repName);//specify location of the report
 		htmlReporter.loadXMLConfig(System.getProperty("user.dir")+ "/extent-config.xml");
 		
 		extent=new ExtentReports();
-		
 		extent.attachReporter(htmlReporter);
-		extent.setSystemInfo("Host name","localhost");
-		extent.setSystemInfo("Environemnt","QA");
-		extent.setSystemInfo("user","pavan");
+		extent.setSystemInfo("Host name","LocalHost");
+		extent.setSystemInfo("Environment","QA");
+		extent.setSystemInfo("User","Nargiza Denizov");
 		
 		htmlReporter.config().setDocumentTitle("InetBanking Test Project"); // Tile of report
 		htmlReporter.config().setReportName("Functional Test Automation Report"); // name of the report
@@ -56,17 +55,17 @@ public class Reporting extends TestListenerAdapter
 	
 	public void onTestFailure(ITestResult tr)
 	{
-		logger=extent.createTest(tr.getName()); // create new entry in th report
+		logger=extent.createTest(tr.getName()); // create new entry in the report
 		logger.log(Status.FAIL,MarkupHelper.createLabel(tr.getName(),ExtentColor.RED)); // send the passed information to the report with GREEN color highlighted
 		
-		String screenshotPath=System.getProperty("user.dir")+"\\Screenshots\\"+tr.getName()+".png";
+		String screenshotPath=System.getProperty("user.dir")+"/Screenshots/"+tr.getName()+".png";
 		
 		File f = new File(screenshotPath); 
 		
 		if(f.exists())
 		{
 		try {
-			logger.fail("Screenshot is below:" + logger.addScreenCaptureFromPath(screenshotPath));
+			logger.fail("Screenshot is below:" + logger.addScreenCaptureFromPath("."+screenshotPath));
 			} 
 		catch (IOException e) 
 				{
