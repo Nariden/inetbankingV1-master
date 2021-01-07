@@ -17,7 +17,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.ChartLocation;
+
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Reporting extends TestListenerAdapter
@@ -32,7 +32,7 @@ public class Reporting extends TestListenerAdapter
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());//time stamp
 		String repName="Test-Report-"+timeStamp+".html";
 		
-		htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+ "/test-output/"+repName);//specify location of the report
+		htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+ "/test-output/ExtentReports/"+repName);//specify location of the report
 		htmlReporter.loadXMLConfig(System.getProperty("user.dir")+ "/extent-config.xml");
 		
 		extent=new ExtentReports();
@@ -44,7 +44,7 @@ public class Reporting extends TestListenerAdapter
 		
 		htmlReporter.config().setDocumentTitle("InetBanking Test Project"); // Tile of report
 		htmlReporter.config().setReportName("Functional Test Automation Report"); // name of the report
-		htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP); //location of the chart
+
 		htmlReporter.config().setTheme(Theme.DARK);
 	}
 	
