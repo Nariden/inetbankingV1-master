@@ -440,3 +440,7 @@
 2021-01-07 11:50:56,459 - ebanking -INFO - URL is opened
 2021-01-07 11:50:56,897 - ebanking -INFO - Entered username
 2021-01-07 11:50:57,015 - ebanking -INFO - Entered password
+2021-01-07 12:01:21,258 - ebanking -INFO - URL is opened
+2021-01-07 12:01:21,681 - ebanking -INFO - Entered username
+2021-01-07 12:01:21,790 - ebanking -INFO - Entered password
+2021-01-07 12:01:23,409 - ebanking -INFO - Login test passed
