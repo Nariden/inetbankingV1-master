@@ -43,8 +43,9 @@ public class Reporting extends TestListenerAdapter
 		
 		htmlReporter.config().setDocumentTitle("InetBanking Test Project"); // Tile of report
 		htmlReporter.config().setReportName("Functional Test Automation Report"); // name of the report
-
+		htmlReporter.config().setAutoCreateRelativePathMedia(true);
 		htmlReporter.config().setTheme(Theme.DARK);
+
 	}
 	
 	public void onTestSuccess(ITestResult tr)
@@ -55,6 +56,7 @@ public class Reporting extends TestListenerAdapter
 	
 	public void onTestFailure(ITestResult tr)
 	{
+
 		logger=extent.createTest(tr.getName()); // create new entry in the report
 		logger.log(Status.FAIL,MarkupHelper.createLabel(tr.getName(),ExtentColor.RED)); // send the passed information to the report with GREEN color highlighted
 		
@@ -65,8 +67,8 @@ public class Reporting extends TestListenerAdapter
 		if(f.exists())
 		{
 		try {
-			logger.fail("Screenshot is below:" + logger.addScreenCaptureFromPath("."+screenshotPath));
-			} 
+			logger.fail("Screenshot is below:" + logger.addScreenCaptureFromPath(screenshotPath));
+			}
 		catch (IOException e) 
 				{
 				e.printStackTrace();
